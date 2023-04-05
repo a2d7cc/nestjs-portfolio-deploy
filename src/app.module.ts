@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { getTypeormConfig } from './configs/typeorm.config';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { FileModule } from './file/file.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { AuthModule } from './auth/auth.module';
 			useFactory: getTypeormConfig,
 		}),
     UserModule,
-    AuthModule
+    AuthModule,
+    FileModule
   ],
   controllers: [AppController],
   providers: [AppService],
