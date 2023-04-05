@@ -15,7 +15,7 @@ export class OnlyAdminGuard implements CanActivate {
 		const user = request.user
 
 		if (!user.isAdmin) {
-			throw new BadRequestException('Dont have access in admin.guard.ts')
+			throw new BadRequestException('Dont have access')
 		}
 
 		return user.isAdmin
