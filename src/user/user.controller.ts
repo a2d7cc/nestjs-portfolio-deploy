@@ -10,7 +10,7 @@ export class UserController {
 
   @Get()
   async findAll(
-    @Query("searchTerm") searchTerm?: string
+    @Query('searchTerm') searchTerm?: string
   ) {
     return this.userService.findAll(searchTerm);
   }

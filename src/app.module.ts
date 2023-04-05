@@ -7,6 +7,7 @@ import { getTypeormConfig } from './configs/typeorm.config';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { FileModule } from './file/file.module';
+import { ProjectModule } from './project/project.module';
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { FileModule } from './file/file.module';
 		}),
     UserModule,
     AuthModule,
-    FileModule
+    FileModule,
+    ProjectModule
   ],
   controllers: [AppController],
   providers: [AppService],
