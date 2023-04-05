@@ -8,6 +8,7 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { FileModule } from './file/file.module';
 import { ProjectModule } from './project/project.module';
+import { SkillsModule } from './skills/skills.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { ProjectModule } from './project/project.module';
     UserModule,
     AuthModule,
     FileModule,
-    ProjectModule
+    ProjectModule,
+    SkillsModule
   ],
   controllers: [AppController],
   providers: [AppService],

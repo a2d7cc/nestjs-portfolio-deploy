@@ -26,6 +26,7 @@ export class AuthService {
 	) {}
 
 	async createUser({ email, password }: AuthDto): Promise<User> {
+
 		const existingUser = await this.userRepository.findOne({
 			where: { email },
 		})
