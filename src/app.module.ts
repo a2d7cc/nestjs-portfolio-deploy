@@ -9,10 +9,28 @@ import { AuthModule } from './auth/auth.module';
 import { FileModule } from './file/file.module';
 import { ProjectModule } from './project/project.module';
 import { SkillsModule } from './skills/skills.module';
+import { MailingModule } from './mailing/mailing.module';
+
+import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
+import { MailerModule } from '@nestjs-modules/mailer';
+
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    MailingModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    MailerModule.forRoot({
+      transport: 'smtps://user@domain.com:pass@smtp.domain.com',
+      template: {
+        dir: process.cwd() + '/templates/',
+        adapter: new HandlebarsAdapter(),
+        options: {
+          strict: true,
+        },
+      },
+    }),
     TypeOrmModule.forRootAsync({
 			imports: [ConfigModule],
 			inject: [ConfigService],
@@ -22,7 +40,8 @@ import { SkillsModule } from './skills/skills.module';
     AuthModule,
     FileModule,
     ProjectModule,
-    SkillsModule
+    SkillsModule,
+    MailingModule
   ],
   controllers: [AppController],
   providers: [AppService],
