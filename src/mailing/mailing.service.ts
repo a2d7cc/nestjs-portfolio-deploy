@@ -46,18 +46,20 @@ export class MailingService {
     this.mailerService.addTransporter('gmail', config);
   }
 
-  public async sendMail({subject, body}: CreateMailDto) {
+  public async sendMail({email, name, body}: CreateMailDto) {
     await this.setTransport();
     this.mailerService
       .sendMail({
         transporterName: 'gmail',
         to: 'chukrii.alex@gmail.com', // list of receivers
         from: 'mailservice0xx@gmail.com', // sender address
-        subject: `${subject}`, // Subject line
+        subject: 'Request from Portfolio', // Subject line
         template: 'action',
         context: {
           // Data to bef sent to template engine..
-          body: `${body}`,
+          code: {
+            email, name, body
+          },
         },
       })
       .then((success) => {

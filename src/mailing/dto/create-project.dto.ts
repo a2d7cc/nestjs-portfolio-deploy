@@ -3,7 +3,11 @@ import { IsNotEmpty, IsString } from 'class-validator'
 export class CreateMailDto {
 	@IsNotEmpty()
 	@IsString()
-	readonly subject: string
+	readonly name: string
+
+	@IsNotEmpty()
+	@IsString()
+	readonly email: string
 
 	@IsNotEmpty()
 	@IsString()
