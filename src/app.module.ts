@@ -19,17 +19,7 @@ import { MailerModule } from '@nestjs-modules/mailer';
   imports: [
     MailingModule,
     ConfigModule.forRoot({
-      isGlobal: true,
-    }),
-    MailerModule.forRoot({
-      transport: 'smtps://user@domain.com:pass@smtp.domain.com',
-      template: {
-        dir: process.cwd() + '/templates/',
-        adapter: new HandlebarsAdapter(),
-        options: {
-          strict: true,
-        },
-      },
+      isGlobal: true
     }),
     TypeOrmModule.forRootAsync({
 			imports: [ConfigModule],

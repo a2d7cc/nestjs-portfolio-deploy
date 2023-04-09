@@ -9,6 +9,6 @@ export class MailingController {
   public sendMail(
     @Body() createMailDto: CreateMailDto
   ) {
-    this.mailingService.sendMail(createMailDto);
+    return this.mailingService.sendMail(createMailDto);
   }
 }
