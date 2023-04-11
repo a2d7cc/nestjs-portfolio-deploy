@@ -6,6 +6,8 @@ import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { join } from 'path';
 
+
+
 @Module({
   imports: [
     MailerModule.forRootAsync({
@@ -16,6 +18,7 @@ import { join } from 'path';
         transport: {
           host: config.get('EMAIL_HOST'),
           secure: false,
+          port: 587,
           auth: {
             user: config.get('EMAIL_USER'),
             pass: config.get('EMAIL_PASS'),

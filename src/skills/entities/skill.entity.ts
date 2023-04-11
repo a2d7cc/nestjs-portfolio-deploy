@@ -11,6 +11,9 @@ export class Skill {
     @Column()
 	slug: string
 
+	@Column()
+	poster: string
+
 	@Column({ default: '' })
 	description: string
 
