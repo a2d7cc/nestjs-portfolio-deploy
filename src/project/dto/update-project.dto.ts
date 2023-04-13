@@ -1,4 +1,10 @@
-import { IsOptional, IsString } from 'class-validator'
+import { Type } from 'class-transformer';
+import { IsArray, IsOptional, IsString, ValidateNested } from 'class-validator'
+
+class TagDto {
+	@IsString()
+	name: string;
+  }
 
 export class UpdateProjectDto {
 	@IsOptional()
@@ -20,4 +26,9 @@ export class UpdateProjectDto {
 	@IsOptional()
 	@IsString()
 	readonly bigPoster: string
+
+
+	@IsOptional()
+	@IsString()
+	tags: string;
 }

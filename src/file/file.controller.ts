@@ -35,7 +35,7 @@ export class FileController {
 	@Header('Content-Type', 'application/pdf')
 	@Header('Content-Disposition', 'attachment; filename="Resume.pdf"')
 	getStaticFile(): StreamableFile {
-	  const file = createReadStream(join(process.cwd(), 'uploads/resume/Resume.pdf'));
+	  const file = createReadStream(join(process.cwd(), 'uploads/resume/ResumeChukrii.pdf'));
 	  return new StreamableFile(file);
 	}  
 }

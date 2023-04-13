@@ -26,6 +26,12 @@ export class Project {
 	@Column({ default: '' })
 	body: string
 
+	@Column({ type: 'jsonb',  default: {} })
+	tags: string;
+  
+	@Column()
+	git: string
+
 	@Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
 	createdAt: Date
 

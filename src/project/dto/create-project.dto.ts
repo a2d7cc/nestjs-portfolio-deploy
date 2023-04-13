@@ -1,4 +1,10 @@
-import { IsNotEmpty, IsString } from 'class-validator'
+import { Type } from 'class-transformer';
+import { IsArray, IsNotEmpty, IsOptional, IsString, ValidateNested } from 'class-validator'
+
+class TagDto {
+	@IsString()
+	name: string;
+  }
 
 export class CreateProjectDto {
 	@IsNotEmpty()
@@ -20,4 +26,14 @@ export class CreateProjectDto {
 	@IsNotEmpty()
 	@IsString()
 	readonly bigPoster: string
+
+	@IsNotEmpty()
+	@IsString()
+	readonly git: string
+
+	@IsOptional()
+	@IsString()
+	tags: string;
+
+	
 }
