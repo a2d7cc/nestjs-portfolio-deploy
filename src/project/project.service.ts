@@ -25,7 +25,11 @@ export class ProjectService {
         title: ILike(`%${searchTerm}%`)
       })
     } else {
-      projects = await this.projectRepository.find()
+      projects = await this.projectRepository.find({
+        order: {
+          updatedAt: "ASC"
+        }
+      })
     }
 
     return projects;
